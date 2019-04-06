@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/api/connection', (req, res) => {
-    res.json({connection: "success"});
+    res.status(200).json({connection: "success"});
 });
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/dist/todo"));
   app.get('*', (req, res) => {    //send the client application for all non-api calls
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    res.sendFile(path.join(__dirname, "./client/dist/todo/index.html"));
   });
 }
 
