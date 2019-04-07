@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoItemComponent } from './todo-item/todo-item.component';
 import { EditTodoItemComponent } from './edit-todo-item/edit-todo-item.component';
 import { NewTodoItemComponent } from './new-todo-item/new-todo-item.component';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +14,6 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     NavComponent,
     TodoListComponent,
-    TodoItemComponent,
     EditTodoItemComponent,
     NewTodoItemComponent
   ],

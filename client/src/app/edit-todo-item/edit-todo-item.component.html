@@ -1,10 +1,10 @@
-<label>Title: </label><input type='text' [(ngModel)]="title">
-<br>
-<label>Notes: </label><textarea type='textarea' [(ngModel)]="notes"></textarea>
-<br>
-<label>Completed: </label><input type='checkbox' [(ngModel)]="completed">
-<button (click)="onUpdate()">Update</button>
-<button (click)="onDelete()">Delete</button>
-<button><a routerLink="/">Back</a></button>
+<section>
+    <label>Title: <input type='text' [(ngModel)]="title"></label>
+    <label>Notes: <textarea type='textarea' col="100" [(ngModel)]="notes"></textarea></label>
+    <label>Completed: <input type='checkbox' [(ngModel)]="completed"></label>
+    <button (click)="onUpdate()">Update</button>
+    <button (click)="onDelete()">Delete</button>
+    <button><a routerLink="/">Back</a></button>
+</section>
 
 

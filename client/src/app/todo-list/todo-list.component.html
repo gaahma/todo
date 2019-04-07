@@ -1,6 +1,6 @@
-<button><a routerLink="item/new">New Item</a></button>
 <ul *ngIf="todoList && todoList.length">
-  <li *ngFor="let item of todoList">
-    <app-todo-item [item]=item></app-todo-item>
+  <li *ngFor="let item of todoList" routerLink="/item/{{item._id}}">
+    <p>{{item.title}}</p>
   </li>
 </ul>
+

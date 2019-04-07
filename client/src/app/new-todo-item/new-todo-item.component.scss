@@ -1,0 +1,22 @@
+section{
+    background: rgb(238, 238, 238);
+    text-align: center;
+
+    button {
+        font-size: 1em;
+        margin: 1em;
+    }
+    label {
+        display: block;
+        margin: 1em;
+        input {
+            margin: 1em;
+            height: 2em;
+            outline: darkviolet;
+            vertical-align: middle;
+        }
+        textarea {
+            resize: none;
+        }
+    }
+}
