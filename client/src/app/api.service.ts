@@ -11,4 +11,8 @@ export class ApiService {
   connect(){
     return this.http.get('/api/connection');
   }
+
+  getTodoList(){
+    return this.http.get('/api/todoList');
+  }
 }
