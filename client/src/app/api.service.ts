@@ -7,12 +7,20 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  
-  connect(){
-    return this.http.get('/api/connection');
-  }
 
   getTodoList(){
     return this.http.get('/api/todoList');
   }
+
+  getTodoItem(_id: String){
+    return this.http.get(`/api/todoItem/${_id}`)
+  }
+
+  createTodoItem(item: Object){
+    return this.http.post("/api/todoItem", item);
+  }
+  delTodoItem(_id: String){
+    return this.http.delete(`/api/todoItem/${_id}`)
+  }
+
 }

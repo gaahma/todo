@@ -13,8 +13,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.api.getTodoList().subscribe(todoList => {
       this.todoList = todoList;
-      console.log(this.todoList);
-    })
+    });
   }
 
 }

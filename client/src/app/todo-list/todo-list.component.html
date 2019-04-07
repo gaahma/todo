@@ -1,3 +1,6 @@
-<p>
-  todo-list works!
-</p>
+<button><a routerLink="item/new">New Item</a></button>
+<ul *ngIf="todoList && todoList.length">
+  <li *ngFor="let item of todoList">
+    <app-todo-item [item]=item></app-todo-item>
+  </li>
+</ul>
