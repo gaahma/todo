@@ -18,6 +18,7 @@ export class NewTodoItemComponent implements OnInit {
 
   onSubmit(){
     const {title, notes, completed} = this;
+    if(!title) return;
     this.api.createTodoItem({title, notes, completed}).subscribe(
       data => {
         this.router.navigate(['/']);

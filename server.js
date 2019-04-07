@@ -40,6 +40,15 @@ app.delete('/api/todoItem/:_id', (req, res) => {
   }); 
 });
 
+app.put('/api/todoItem/', (req, res) => {
+  const {_id} = req.body;
+  delete req.body._id;
+  db.todoItems.update({_id: ObjectId(_id)},{$set: req.body},(err, result) => {
+      if(err) res.status(500).json(err);
+      else res.status(200).json(result);
+  }); 
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist/todo"));
   app.get('*', (req, res) => {    

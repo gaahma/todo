@@ -11,23 +11,34 @@ export class EditTodoItemComponent implements OnInit {
   title: String = "";
   notes: String="";
   completed: Boolean = false;
+  _id: String;
+
   constructor(
     private route: ActivatedRoute, 
     private api: ApiService,
     private router: Router) { }
-  _id: String;
+
   ngOnInit() {
+    this.onLoad();
+  }
+
+  onLoad(){
     this._id = this.route.snapshot.paramMap.get('_id');
     this.api.getTodoItem(this._id).subscribe((item: any) => {
       this.title = item.title;
       this.notes = item.notes;
       this.completed = item.completed;
     });
-    
   }
 
   onUpdate(){
-
+    const {title, notes, completed, _id} = this;
+    this.api.updateTodoItem({title, notes, completed, _id}).subscribe((data) =>{
+      this.router.navigate(['/']);
+    }, 
+    error => {
+      console.log(error);
+    });
   }
 
   onDelete(){

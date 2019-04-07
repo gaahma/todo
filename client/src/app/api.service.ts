@@ -19,8 +19,13 @@ export class ApiService {
   createTodoItem(item: Object){
     return this.http.post("/api/todoItem", item);
   }
+  
   delTodoItem(_id: String){
     return this.http.delete(`/api/todoItem/${_id}`)
+  }
+
+  updateTodoItem(item: Object){
+    return this.http.put(`/api/todoItem`, item);
   }
 
 }
