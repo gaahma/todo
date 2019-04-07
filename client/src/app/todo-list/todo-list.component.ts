@@ -7,7 +7,7 @@ import {ApiService} from '../api.service';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  todoList: Object;
+  todoList: any;
   constructor(private api: ApiService) { }
 
   ngOnInit() {

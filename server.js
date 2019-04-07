@@ -9,12 +9,35 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+const { ObjectId } = mongojs;
+
 //Define CRUD routes
 app.get('/api/todoList', (req, res) => {
   db.todoItems.find({}, (err, result) => {
     if(err) res.status(500).json(err);
     else res.status(200).json(result);
-  });
+  }); 
+});
+
+app.get('/api/todoItem/:_id', (req, res) => {
+  db.todoItems.findOne({_id: ObjectId(req.params._id)}, (err, result) => {
+    if(err) res.status(500).json(err);
+    else res.status(200).json(result);
+  }); 
+});
+
+app.post('/api/todoItem/', (req, res) => {
+  db.todoItems.save(req.body, (err, result) => {
+    if(err) res.status(500).json(err);
+    else res.status(200).json(result);
+  }); 
+});
+
+app.delete('/api/todoItem/:_id', (req, res) => {
+  db.todoItems.remove({_id: ObjectId(req.params._id)}, (err, result) => {
+    if(err) res.status(500).json(err);
+    else res.status(200).json(result);
+  }); 
 });
 
 if (process.env.NODE_ENV === "production") {
@@ -24,7 +47,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "./client/dist/todo/index.html"));
   });
 }
-console.log({"mongo_uri": process.env.MONGODB_URI});
+
 const db = mongojs(process.env.MONGODB_URI || 'mongodb://localhost/todo', ['todoItems']);  
 db.on("error", (error) => console.log("Mongoose Error: ", error));
 
